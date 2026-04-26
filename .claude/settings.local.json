@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(brew --version)",
+      "Bash(/opt/homebrew/bin/brew --version)",
+      "Bash(/usr/local/bin/brew --version)",
+      "Bash(npm --version)",
+      "Bash(curl -fsSL https://github.com/cli/cli/releases/download/v2.69.0/gh_2.69.0_macOS_arm64.zip -o /tmp/gh.zip)",
+      "Bash(unzip -o /tmp/gh.zip -d /tmp/gh_install)",
+      "Read(//tmp/**)",
+      "Bash(sudo cp:*)",
+      "Bash(gh --version)",
+      "Bash(cp /tmp/gh_install/gh_2.69.0_macOS_arm64/bin/gh ~/bin/gh)",
+      "Bash(mkdir -p ~/bin)",
+      "Bash(~/bin/gh --version)",
+      "Bash(~/bin/gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
