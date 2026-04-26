@@ -12,14 +12,14 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/shop/${product.handle}`}
       className="group block overflow-hidden rounded-2xl border border-ink/10 bg-white transition hover:-translate-y-0.5 hover:shadow-xl"
     >
-      <div className="relative aspect-square overflow-hidden bg-cream">
+      <div className="hero-gradient-soft relative aspect-square overflow-hidden">
         {img ? (
           <Image
             src={img.url}
             alt={img.alt || product.title}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition duration-500 group-hover:scale-105"
+            className="object-contain p-4 transition duration-500 group-hover:scale-[1.04]"
           />
         ) : null}
         {product.badges?.[0] ? (

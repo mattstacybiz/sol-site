@@ -70,9 +70,8 @@ case in its `index.ts`. Pages don't change.
 
 ### Commerce — Shopify
 
-1. Create a Shopify store, add products with handles matching `sol-original`,
-   `sol-original-5pack`, `sol-sample-pack` (or update the seed handles in
-   `src/lib/commerce/mock.ts`).
+1. Create a Shopify store, add products with handles matching `sol-mint-sleeve`
+   (or update the seed handles in `src/lib/commerce/mock.ts`).
 2. In Shopify admin → Apps → Headless → create a **Storefront API** access token.
 3. Set env:
    ```env
@@ -176,7 +175,7 @@ NEXT_PUBLIC_FEATURE_ANNOUNCEMENT_BAR=true
 
 - **No health claims, ever.** Copy says how the product feels and what it is. It
   never says it treats, prevents, or cures anything.
-- **21+ everywhere.** Age gate is wired but feature-flagged off by default.
+- **18+ everywhere.** Age gate is wired but feature-flagged off by default.
 - **Restricted states list lives in `config/restricted-states.ts`** and is
   rendered on `/policies/shipping`. The current values are placeholders — they
   carry a `[REVIEW WITH LAWYER]` warning and **must** be confirmed with counsel

@@ -56,7 +56,7 @@ export function WholesaleForm() {
       <div className="rounded-2xl border border-ink/10 bg-white p-8 text-center" role="status">
         <h2 className="font-display text-2xl text-ink">Thanks — we&rsquo;ll be in touch.</h2>
         <p className="mt-2 text-ink-muted">
-          Wholesale lead times are 1&ndash;2 business days. Tampa accounts get priority.
+          A Sol rep will be in touch within 1&ndash;2 business days.
         </p>
       </div>
     );

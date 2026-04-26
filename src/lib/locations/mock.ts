@@ -2,9 +2,9 @@
  * Mock locations adapter — returns an empty list. The /find-us page renders
  * a "coming soon" state when nothing comes back.
  *
- * !! TODO: As wholesale accounts close (lead market: Tampa / St. Pete kava
- *    bars), seed real entries here, OR swap LOCATIONS_PROVIDER to a Shopify
- *    Metaobject / CSV / Google Places implementation.
+ * !! TODO: Seed real entries here as locations come online, OR swap
+ *    LOCATIONS_PROVIDER to a real backend (Shopify Metaobject / CSV /
+ *    Google Places).
  */
 
 import type { LocationsAdapter } from "./types";

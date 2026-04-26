@@ -75,7 +75,7 @@ export function CartDrawer() {
           <div className="flex flex-1 flex-col items-center justify-center gap-3 p-10 text-center">
             <p className="font-display text-2xl text-ink">Cart&rsquo;s empty.</p>
             <p className="text-sm text-ink-muted">
-              Pick up a can or grab a sample pack to get started.
+              Grab a sleeve of Sol Mint to get started.
             </p>
             <Button asChild variant="sunset" className="mt-2" onClick={() => setIsOpen(false)}>
               <Link href="/shop">Shop Sol</Link>
@@ -164,7 +164,7 @@ export function CartDrawer() {
               Checkout
             </Button>
             <p className="mt-3 text-center text-xs text-ink-muted">
-              Adults 21+ only. Sol does not ship to all US states — see{" "}
+              Adults 18+ only. Sol does not ship to all US states — see{" "}
               <Link href="/policies/shipping" className="underline">shipping policy</Link>.
             </p>
           </div>

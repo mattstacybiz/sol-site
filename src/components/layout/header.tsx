@@ -2,14 +2,116 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, ShoppingBag, X } from "lucide-react";
+import { ChevronDown, Menu, ShoppingBag, X } from "lucide-react";
 
-import { headerNav } from "@config/nav";
+import { headerNav, type NavLink } from "@config/nav";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { Logo } from "./logo";
 import { useCart } from "@/components/providers/cart-provider";
 import { cn } from "@/lib/utils";
+
+/**
+ * Top-level nav item with optional hover/focus dropdown.
+ *
+ * - The trigger label itself is a Link to the parent's `href` (so clicking
+ *   "Learn" navigates to `/learn`).
+ * - The dropdown opens on hover (mouseenter) and on keyboard focus.
+ * - Closes on mouseleave (small delay to let the cursor cross the gap),
+ *   on Escape, or when any child link is activated.
+ */
+function NavItem({ link }: { link: NavLink }) {
+  const [open, setOpen] = React.useState(false);
+  const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  if (!link.children?.length) {
+    return (
+      <Link
+        href={link.href}
+        className={cn(
+          "text-sm font-medium text-ink/80 transition hover:text-ink",
+          link.emphasis && "text-sunset hover:text-sunset",
+        )}
+      >
+        {link.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => {
+        cancelClose();
+        setOpen(true);
+      }}
+      onMouseLeave={scheduleClose}
+      onFocusCapture={() => {
+        cancelClose();
+        setOpen(true);
+      }}
+      onBlurCapture={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) scheduleClose();
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") setOpen(false);
+      }}
+    >
+      <Link
+        href={link.href}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        className={cn(
+          "inline-flex items-center gap-1 text-sm font-medium text-ink/80 transition hover:text-ink",
+          link.emphasis && "text-sunset hover:text-sunset",
+        )}
+      >
+        {link.label}
+        <ChevronDown
+          className={cn(
+            "h-3.5 w-3.5 transition-transform",
+            open && "rotate-180",
+          )}
+          aria-hidden
+        />
+      </Link>
+
+      {open ? (
+        <div
+          role="menu"
+          aria-label={link.label}
+          className="absolute left-0 top-full z-50 pt-3"
+        >
+          <ul className="min-w-56 overflow-hidden rounded-2xl border border-ink/10 bg-cream p-1 shadow-xl ring-1 ring-ink/5">
+            {link.children.map((child) => (
+              <li key={child.href}>
+                <Link
+                  role="menuitem"
+                  href={child.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-ink/85 transition hover:bg-sunset/10 hover:text-ink"
+                >
+                  {child.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </div>
+  );
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -23,16 +125,7 @@ export function Header() {
           <Logo />
           <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
             {headerNav.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium text-ink/80 transition hover:text-ink",
-                  link.emphasis && "text-sunset hover:text-sunset",
-                )}
-              >
-                {link.label}
-              </Link>
+              <NavItem key={link.href} link={link} />
             ))}
           </nav>
         </div>
@@ -83,6 +176,20 @@ export function Header() {
                 >
                   {link.label}
                 </Link>
+                {link.children?.length ? (
+                  <ul className="mb-2 ml-4 border-l border-ink/10 pl-4">
+                    {link.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          className="block py-2 text-sm text-ink/70"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </li>
             ))}
             <li>

@@ -10,6 +10,10 @@ const nextConfig = {
       // Unsplash — placeholder photography during build
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
+    // Allow SVG mockups under /public/images/products. Locked down with a
+    // strict CSP so the optimizer won't execute scripts in any SVG.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 

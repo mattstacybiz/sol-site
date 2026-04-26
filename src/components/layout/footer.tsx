@@ -82,7 +82,7 @@ export function Footer() {
         </div>
 
         <p className="mt-6 text-xs leading-relaxed text-ink-muted">
-          Sol is for adults 21+. Sol does not make any health or therapeutic claims about kava.
+          Sol is for adults 18+. Sol does not make any health or therapeutic claims about kava.
           Kava sale is regulated differently in different US jurisdictions — see{" "}
           <Link href="/policies/shipping" className="underline">shipping policy</Link>.
         </p>

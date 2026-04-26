@@ -47,14 +47,14 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
         <div className="mt-6 grid gap-12 md:grid-cols-2 md:gap-16">
           {/* Gallery */}
           <div className="space-y-4">
-            <div className="relative aspect-square overflow-hidden rounded-3xl bg-cream">
+            <div className="hero-gradient-soft relative aspect-square overflow-hidden rounded-3xl">
               {product.images[0] ? (
                 <Image
                   src={product.images[0].url}
                   alt={product.images[0].alt || product.title}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover"
+                  className="object-contain p-6"
                   priority
                 />
               ) : null}
@@ -62,8 +62,8 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
             {product.images.length > 1 ? (
               <div className="grid grid-cols-4 gap-3">
                 {product.images.slice(1, 5).map((img, i) => (
-                  <div key={i} className="relative aspect-square overflow-hidden rounded-xl bg-cream">
-                    <Image src={img.url} alt={img.alt} fill sizes="120px" className="object-cover" />
+                  <div key={i} className="hero-gradient-soft relative aspect-square overflow-hidden rounded-xl">
+                    <Image src={img.url} alt={img.alt} fill sizes="120px" className="object-contain p-2" />
                   </div>
                 ))}
               </div>
@@ -122,7 +122,7 @@ export default async function ProductDetailPage({ params }: { params: Params }) 
                 <li>Toss it. Start with one. Pace yourself.</li>
               </ol>
               <p className="mt-3 text-xs text-ink-muted">
-                For adults 21+. Don&rsquo;t mix with alcohol. New to kava? Read{" "}
+                For adults 18+. Don&rsquo;t mix with alcohol. New to kava? Read{" "}
                 <Link href="/kava-101" className="underline">Kava 101</Link>.
               </p>
             </div>

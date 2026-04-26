@@ -21,8 +21,8 @@ export default async function FindUsPage() {
           Stocked near you.
         </h1>
         <p className="mt-5 text-lg text-ink-muted">
-          Sol is launching wholesale-first into kava bars and smoke shops, starting in
-          Tampa / St. Petersburg, FL. As accounts come online, they&rsquo;ll show up here.
+          Sol is stocked at kava bars and shops across the country. As locations
+          come online, they&rsquo;ll show up here.
         </p>
       </div>
 
@@ -30,12 +30,12 @@ export default async function FindUsPage() {
         <div className="mt-12 rounded-3xl border border-dashed border-ink/20 bg-white p-10 text-center">
           <p className="font-display text-2xl text-ink">Coming soon.</p>
           <p className="mt-2 text-ink-muted">
-            We&rsquo;re onboarding bars right now. In the meantime, the easiest way to try Sol
-            is to order a sample pack.
+            New locations get added regularly. In the meantime, you can order
+            Sol Mint direct.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Button asChild variant="sunset">
-              <Link href="/shop/sol-sample-pack">Get a sample pack</Link>
+              <Link href="/shop/sol-mint-sleeve">Order a sleeve</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/wholesale">Run a kava bar? Talk to wholesale</Link>

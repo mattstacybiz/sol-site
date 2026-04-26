@@ -79,7 +79,7 @@ export default function ShippingPolicyPage() {
 
       <h2>Age verification</h2>
       <p>
-        Sol is for adults 21 and over. The carrier may request signature
+        Sol is for adults 18 and over. The carrier may request signature
         verification at delivery for kava shipments depending on destination state.
       </p>
     </article>

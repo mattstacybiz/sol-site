@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
 
       <h2>Children</h2>
       <p>
-        Sol is for adults 21 and over. We do not knowingly collect data from
+        Sol is for adults 18 and over. We do not knowingly collect data from
         anyone under 21.
       </p>
 

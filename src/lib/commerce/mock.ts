@@ -4,7 +4,7 @@
  * inline or swap to the Shopify adapter once a real catalog exists.
  *
  * !! TODO: Matt to replace placeholder copy, photography, and pricing.
- *    Add additional SKUs (e.g. a "Reserve" strength) once formulation locks.
+ *    Add additional flavors / sleeve sizes once the lineup expands.
  */
 
 import { randomUUID } from "node:crypto";
@@ -20,93 +20,50 @@ import type {
 
 const USD = (amount: string): Money => ({ amount, currencyCode: "USD" });
 
-const placeholderImage = (q: string, seed: string) => ({
-  // Unsplash-source URLs are stable per seed and resize on the fly.
-  url: `https://images.unsplash.com/${q}?auto=format&fit=crop&w=1200&q=80&sig=${seed}`,
-  alt: "",
+// Local SVG mockups live under /public/images/products. They render crisp at
+// any size and don't depend on external image hosts. Swap to real product
+// photography in Shopify once we have shoot files.
+const localImage = (file: string, alt: string) => ({
+  url: `/images/products/${file}`,
+  alt,
   width: 1200,
   height: 1200,
 });
 
 // ---------------------------------------------------------------------------
-// Seed catalog — three launch SKUs.
+// Seed catalog — sleeves only. One flavor (mint) at launch.
 // ---------------------------------------------------------------------------
 
 const PRODUCTS: Product[] = [
   {
-    id: "prod_sol_original_can",
-    handle: "sol-original",
-    title: "Sol Original",
-    subtitle: "20 noble kava pouches. Standard strength.",
+    id: "prod_sol_mint_sleeve",
+    handle: "sol-mint-sleeve",
+    title: "Sol Mint — Sleeve",
+    subtitle: "Five tins of noble kava pouches. Cool mint.",
     description:
-      "The everyday Sol pouch. Concentrated noble kava root extract in a soft, slim pouch you tuck under your lip. Twenty per can — about a week if you pace yourself, a long weekend if you don't.",
-    category: "single",
-    popularity: 90,
-    badges: ["Bestseller"],
+      "A sleeve of Sol Mint — five tins, twenty pouches each, one hundred pouches total. Concentrated noble kava root extract in a soft pouch you tuck under your lip. Cool mint flavor. Free shipping in the US.",
+    category: "sleeve",
+    popularity: 100,
+    badges: ["Mint"],
     images: [
-      {
-        ...placeholderImage(
-          "photo-1556909114-f6e7ad7d3136",
-          "sol-original-1",
-        ),
-        alt: "A can of Sol Original kava pouches on a sunset-lit table.",
-      },
-      {
-        ...placeholderImage("photo-1518791841217-8f162f1e1131", "sol-2"),
-        alt: "Close-up of a Sol kava pouch.",
-      },
+      localImage(
+        "sol-original-5pack.svg",
+        "A sleeve of five Sol Mint tins, fanned out.",
+      ),
     ],
     variants: [
       {
-        id: "var_sol_original_can",
-        title: "20-pouch can",
-        price: USD("24.00"), // TODO: confirm launch price with Matt
-        available: true,
-      },
-    ],
-    priceFrom: USD("24.00"),
-    specs: [
-      { label: "Pouches per can", value: "20" },
-      // TODO: lock kavalactone mg per pouch with Daily Manufacturing
-      { label: "Kavalactones per pouch", value: "TBD mg" },
-      { label: "Strength", value: "Standard" },
-      { label: "Made in", value: "USA" },
-    ],
-    ingredients: [
-      "Noble kava root extract",
-      "Microcrystalline cellulose",
-      "Food-grade flavor base",
-      "Xanthan gum",
-    ],
-  },
-  {
-    id: "prod_sol_original_5pack",
-    handle: "sol-original-5pack",
-    title: "Sol Original — 5-Can Multipack",
-    subtitle: "Five cans, one box. Stock the bar (and the glovebox).",
-    description:
-      "Save when you stock up. Five cans of Sol Original — 100 pouches total — in one box. Free shipping on multipacks.",
-    category: "multipack",
-    popularity: 80,
-    badges: ["Best value"],
-    images: [
-      {
-        ...placeholderImage("photo-1542838132-92c53300491e", "sol-5pack-1"),
-        alt: "Five cans of Sol Original arranged in a row.",
-      },
-    ],
-    variants: [
-      {
-        id: "var_sol_original_5pack",
-        title: "5-can multipack",
-        price: USD("108.00"), // ~10% off vs. 5x single — TODO confirm
-        compareAtPrice: USD("120.00"),
+        id: "var_sol_mint_sleeve",
+        title: "Mint · 5-tin sleeve",
+        price: USD("108.00"), // TODO confirm launch price
         available: true,
       },
     ],
     priceFrom: USD("108.00"),
     specs: [
-      { label: "Cans", value: "5" },
+      { label: "Flavor", value: "Mint" },
+      { label: "Tins per sleeve", value: "5" },
+      { label: "Pouches per tin", value: "20" },
       { label: "Pouches total", value: "100" },
       { label: "Shipping", value: "Free in the US" },
       { label: "Made in", value: "USA" },
@@ -114,49 +71,11 @@ const PRODUCTS: Product[] = [
     ingredients: [
       "Noble kava root extract",
       "Microcrystalline cellulose",
-      "Food-grade flavor base",
+      "Natural mint flavor",
       "Xanthan gum",
     ],
   },
-  {
-    id: "prod_sol_sample_pack",
-    handle: "sol-sample-pack",
-    title: "Sol Sample Pack",
-    subtitle: "One can, one sticker. New to kava? Start here.",
-    description:
-      "A first-timer's pack: one can of Sol Original (20 pouches) plus a Sol sticker for your laptop, water bottle, or kava bar wall. Built for trying.",
-    category: "sample",
-    popularity: 70,
-    badges: ["New here?"],
-    images: [
-      {
-        ...placeholderImage("photo-1525904097878-94fb15835963", "sol-sample-1"),
-        alt: "A Sol Sample Pack — one can plus a brand sticker.",
-      },
-    ],
-    variants: [
-      {
-        id: "var_sol_sample_pack",
-        title: "Sample pack",
-        price: USD("18.00"), // TODO confirm — keep this trial-friendly
-        available: true,
-      },
-    ],
-    priceFrom: USD("18.00"),
-    specs: [
-      { label: "Includes", value: "1 can + 1 sticker" },
-      { label: "Pouches", value: "20" },
-      { label: "Made in", value: "USA" },
-    ],
-    ingredients: [
-      "Noble kava root extract",
-      "Microcrystalline cellulose",
-      "Food-grade flavor base",
-      "Xanthan gum",
-    ],
-  },
-  // TODO: add "Sol Reserve" (stronger formulation) once kavalactone delivery
-  // is locked in with Daily Manufacturing. Also flavored variants when ready.
+  // TODO: add additional flavors / sleeve sizes as the lineup expands.
 ];
 
 // ---------------------------------------------------------------------------

@@ -12,7 +12,7 @@ const env = (key: string, fallback: boolean): boolean => {
 };
 
 export const features = {
-  /** Show the 21+ age gate on first visit. Off by default — flip for launch. */
+  /** Show the 18+ age gate on first visit. Off by default — flip for launch. */
   ageGate: env("NEXT_PUBLIC_FEATURE_AGE_GATE", false),
   /** Show the newsletter signup in the footer + after add-to-cart. */
   newsletter: env("NEXT_PUBLIC_FEATURE_NEWSLETTER", true),

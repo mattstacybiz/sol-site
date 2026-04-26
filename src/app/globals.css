@@ -94,11 +94,60 @@
   .hero-gradient {
     background-image: linear-gradient(120deg, hsl(var(--sunset)) 0%, hsl(var(--magenta)) 55%, hsl(var(--ocean)) 100%);
   }
+  .hero-gradient-soft {
+    background-image: linear-gradient(135deg, hsl(var(--sunset) / 0.18) 0%, hsl(var(--magenta) / 0.14) 55%, hsl(var(--ocean) / 0.18) 100%);
+  }
 
-  /* Subtle film-grain overlay you can drop into a hero with `<div class="grain-overlay" />`. */
+  /* Section backgrounds — used to give each section its own vibe. */
+  .bg-ink-deep {
+    background-color: hsl(var(--ink));
+    color: hsl(var(--cream));
+    background-image:
+      radial-gradient(circle at 12% 18%, hsl(var(--magenta) / 0.35), transparent 45%),
+      radial-gradient(circle at 88% 82%, hsl(var(--ocean) / 0.35), transparent 50%);
+  }
+  .bg-sunset-wash {
+    background-image: linear-gradient(180deg, hsl(36 100% 97%) 0%, hsl(28 100% 88%) 100%);
+  }
+  .bg-cream-card {
+    background-color: hsl(var(--cream));
+  }
+
+  /* SVG film grain — drop a `<div class="grain-overlay" />` into any positioned container. */
   .grain-overlay {
-    @apply pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay;
-    background-image: var(--tw-bg-grain, none);
+    @apply pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.65'/></svg>");
+  }
+
+  /* Decorative blob — translucent colored disc you can drop behind content. */
+  .blob {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+  }
+
+  /* Marquee strip used right under the hero. */
+  .marquee {
+    @apply relative flex overflow-hidden;
+  }
+  .marquee__track {
+    @apply flex shrink-0 items-center gap-12 whitespace-nowrap py-3;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee__item {
+    @apply inline-flex items-center gap-3 font-display text-2xl tracking-tight md:text-3xl;
+  }
+  .marquee__dot {
+    @apply inline-block h-2 w-2 rounded-full bg-current opacity-70;
+  }
+
+  /* Slow rotating sun decoration. */
+  .sun-spin {
+    animation: sun-spin 60s linear infinite;
+    transform-origin: center;
+  }
+
+  /* Display-style pull quote used as a section break. */
+  .pull-quote {
+    @apply font-display text-4xl leading-[1.1] tracking-tight md:text-6xl lg:text-7xl;
   }
 }
 
@@ -109,4 +158,12 @@
 @keyframes accordion-up {
   from { height: var(--radix-accordion-content-height) }
   to { height: 0 }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes sun-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

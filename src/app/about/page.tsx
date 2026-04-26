@@ -55,22 +55,22 @@ export default function AboutPage() {
 
         <h2>Sourcing &amp; manufacturing</h2>
         <p>
-          Sol is manufactured in the United States by Daily Manufacturing, a contract partner
-          with deep experience in oral-format products. Our noble kava root is sourced from
+          Sol is manufactured in the United States by an experienced
+          oral-format contract partner. Our noble kava root is sourced from
           established Pacific Island suppliers and tested before it ships.
-          {/* TODO: confirm exact testing protocol with Daily — kavalactone %, contaminant panel */}
         </p>
 
-        <h2>Wholesale-first</h2>
+        <h2>Working with kava bars</h2>
         <p>
-          Sol is launching wholesale-first into kava bars and smoke shops, starting in the
-          Tampa / St. Pete corridor — the densest kava bar market in the US. If you own a
-          bar, a shop, or a brand that overlaps with ours, we&rsquo;d love to talk.
+          Sol is built to live on the back-bar at kava bars and on the shelf at
+          shops alongside the brewed bowl. If you run a bar, a shop, or a brand
+          that overlaps with ours, we&rsquo;d love to talk &mdash; head over to{" "}
+          <a href="/wholesale">/wholesale</a>.
         </p>
 
         <h2>Compliance, in plain English</h2>
         <p>
-          Sol is for adults 21+. We don&rsquo;t make health or therapeutic claims about kava.
+          Sol is for adults 18+. We don&rsquo;t make health or therapeutic claims about kava.
           Kava sale is regulated differently in different US jurisdictions, and we follow
           those rules — see our{" "}
           <a href="/policies/shipping">shipping policy</a> for current restrictions.

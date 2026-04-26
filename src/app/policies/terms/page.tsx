@@ -26,7 +26,7 @@ export default function TermsPolicyPage() {
 
       <h2>Eligibility</h2>
       <p>
-        Sol products are sold to adults 21 and over only. By placing an order, you
+        Sol products are sold to adults 18 and over only. By placing an order, you
         confirm that you meet that age requirement.
       </p>
 

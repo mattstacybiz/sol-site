@@ -10,13 +10,28 @@ export type NavLink = {
   href: string;
   /** If true, render with extra emphasis (e.g. wholesale CTA). */
   emphasis?: boolean;
+  /**
+   * Optional sub-links. If present, the header renders this item as a
+   * dropdown on desktop and a nested list on mobile. The parent link is
+   * still navigable to its own `href` (e.g. `/learn` is a real hub page).
+   */
+  children?: NavLink[];
 };
 
 export const headerNav: NavLink[] = [
   { label: "Shop", href: "/shop" },
-  { label: "Kava 101", href: "/kava-101" },
-  { label: "About", href: "/about" },
-  ...(features.locator ? [{ label: "Find Us", href: "/find-us" }] : []),
+  {
+    label: "Learn",
+    href: "/learn",
+    children: [
+      { label: "Kava 101", href: "/kava-101" },
+      { label: "About Sol", href: "/about" },
+      ...(features.locator
+        ? [{ label: "Store Locator", href: "/find-us" }]
+        : []),
+      { label: "FAQ", href: "/learn/faq" },
+    ],
+  },
   ...(features.wholesale
     ? [{ label: "Wholesale", href: "/wholesale", emphasis: true as const }]
     : []),
@@ -31,9 +46,8 @@ export const footerNav: FooterColumn[] = [
   {
     heading: "Shop",
     links: [
-      { label: "All products", href: "/shop" },
-      { label: "Sample pack", href: "/shop/sol-sample-pack" },
-      { label: "5-can multipack", href: "/shop/sol-original-5pack" },
+      { label: "Shop all", href: "/shop" },
+      { label: "Mint sleeve", href: "/shop/sol-mint-sleeve" },
     ],
   },
   {
@@ -41,7 +55,8 @@ export const footerNav: FooterColumn[] = [
     links: [
       { label: "Kava 101", href: "/kava-101" },
       { label: "About Sol", href: "/about" },
-      { label: "Find a kava bar", href: "/find-us" },
+      { label: "Store Locator", href: "/find-us" },
+      { label: "FAQ", href: "/learn/faq" },
     ],
   },
   {

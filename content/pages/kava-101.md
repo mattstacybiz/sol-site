@@ -26,6 +26,6 @@ compounds and effects. Sol is kava only — noble root extract, nothing else.
 
 Noble kava has a long traditional-use history. As with anything you ingest:
 moderation matters, and if you're pregnant, nursing, on medication, or have
-liver concerns, talk to your doctor first. Sol is for adults 21+.
+liver concerns, talk to your doctor first. Sol is for adults 18+.
 
 <!-- TODO: source citations once we have a final fact-check pass. -->

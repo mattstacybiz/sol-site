@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
+import { SunMark } from "@/components/decor/sun-mark";
 import {
   Accordion,
   AccordionContent,
@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Kava 101 — what kava is, what to expect, and why pouches",
   description:
-    "What is kava? Where does it come from? What does it feel like, and is it safe? A plain-English guide for adults 21+, from Sol — the first kava oral pouch.",
+    "What is kava? Where does it come from? What does it feel like, and is it safe? A plain-English guide for adults 18+, from Sol — the first kava oral pouch.",
   keywords: ["what is kava", "kava pouch", "kava vs alcohol", "is kava safe", "kava bar"],
   alternates: { canonical: "/kava-101" },
 };
@@ -39,7 +39,7 @@ const FAQ = [
   },
   {
     q: "Is kava safe?",
-    a: "Kava has a long traditional history. As with anything, moderation matters: don't mix with alcohol, don't drive after using, and start with one pouch to see how you feel. Sol is for adults 21+.",
+    a: "Kava has a long traditional history. As with anything, moderation matters: don't mix with alcohol, don't drive after using, and start with one pouch to see how you feel. Sol is for adults 18+.",
   },
   {
     q: "Where does Sol ship?",
@@ -52,18 +52,24 @@ export default function Kava101Page() {
     <>
       <FaqJsonLd items={FAQ} />
 
-      <section className="container py-16 md:py-24">
-        <div className="mx-auto max-w-3xl">
-          <Badge variant="ocean">Kava 101</Badge>
-          <h1 className="mt-4 font-display text-5xl leading-tight text-ink md:text-6xl">
-            New to kava? Read this first.
-          </h1>
-          <p className="mt-5 text-lg text-ink-muted">
-            Most people in the US have never heard of kava. That&rsquo;s changing — kava bars are
-            opening in every major city — but it&rsquo;s still new ground. Here&rsquo;s what it is,
-            what it isn&rsquo;t, and why we put it in a pouch.
-          </p>
+      <section className="hero-gradient-soft relative isolate overflow-hidden">
+        <SunMark className="absolute -right-24 -top-24 h-[420px] w-[420px] text-sunset/30 hidden md:block" />
+        <div className="container py-20 md:py-28">
+          <div className="mx-auto max-w-3xl">
+            <Badge variant="ocean">Kava 101</Badge>
+            <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight text-ink md:text-7xl">
+              New to kava? <span className="italic text-sunset">Read this first.</span>
+            </h1>
+            <p className="mt-6 text-lg text-ink-muted">
+              Most people in the US have never heard of kava. That&rsquo;s changing — kava bars are
+              opening in every major city — but it&rsquo;s still new ground. Here&rsquo;s what it is,
+              what it isn&rsquo;t, and why we put it in a pouch.
+            </p>
+          </div>
         </div>
+      </section>
+
+      <section className="container py-16 md:py-24">
 
         <div className="mx-auto mt-16 max-w-3xl prose-sol">
           <h2>What kava actually is</h2>
@@ -87,7 +93,7 @@ export default function Kava101Page() {
           </p>
           <p>
             Effects come on in about 15&ndash;30 minutes, peak around the 45-minute mark, and ease
-            off over an hour or two. {/* TODO: refine if Daily Manufacturing tightens the curve */}
+            off over an hour or two.
           </p>
 
           <h2>Why a pouch?</h2>
@@ -100,7 +106,7 @@ export default function Kava101Page() {
 
           <h2>Safety basics</h2>
           <ul>
-            <li>Adults 21+ only.</li>
+            <li>Adults 18+ only.</li>
             <li>Don&rsquo;t mix with alcohol.</li>
             <li>Don&rsquo;t drive after using.</li>
             <li>Start with one pouch. See how you feel.</li>
@@ -111,16 +117,19 @@ export default function Kava101Page() {
           </p>
         </div>
 
-        {/* Hero photo break */}
-        <div className="container my-16 md:my-24">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-cream">
-            <Image
-              src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80"
-              alt="A kava bar at dusk."
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
+        {/* Stat band — replaces the stock photo break with on-brand content. */}
+        <div className="mx-auto my-16 grid max-w-5xl gap-4 md:my-24 md:grid-cols-3">
+          <div className="rounded-3xl bg-ink p-8 text-cream">
+            <p className="font-display text-5xl">15–30</p>
+            <p className="mt-2 text-sm uppercase tracking-[0.2em] text-cream/70">Minutes to onset</p>
+          </div>
+          <div className="rounded-3xl bg-sunset p-8 text-white">
+            <p className="font-display text-5xl">~2hr</p>
+            <p className="mt-2 text-sm uppercase tracking-[0.2em] text-white/80">Effect duration</p>
+          </div>
+          <div className="rounded-3xl bg-ocean p-8 text-white">
+            <p className="font-display text-5xl">20</p>
+            <p className="mt-2 text-sm uppercase tracking-[0.2em] text-white/85">Pouches per can</p>
           </div>
         </div>
 
@@ -139,7 +148,7 @@ export default function Kava101Page() {
 
         <div className="mx-auto mt-16 max-w-3xl text-center">
           <Button asChild size="lg" variant="sunset">
-            <Link href="/shop/sol-sample-pack">Try a sample pack</Link>
+            <Link href="/shop/sol-mint-sleeve">Shop the mint sleeve</Link>
           </Button>
         </div>
       </section>

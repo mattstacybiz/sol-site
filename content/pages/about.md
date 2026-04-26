@@ -26,6 +26,6 @@ synthetics. No nicotine. No sugar. No alcohol. Real plant, modern format.
 
 ## Sourcing & manufacturing
 
-Sol is manufactured in the United States by Daily Manufacturing, a contract
-partner with deep experience in oral-format products. Our noble kava root is
-sourced from established Pacific Island suppliers and tested before it ships.
+Sol is manufactured in the United States by an experienced oral-format
+contract partner. Our noble kava root is sourced from established Pacific
+Island suppliers and tested before it ships.

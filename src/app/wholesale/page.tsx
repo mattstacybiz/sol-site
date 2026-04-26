@@ -6,7 +6,7 @@ import { WholesaleForm } from "@/components/forms/wholesale-form";
 export const metadata: Metadata = {
   title: "Wholesale + bar partnerships",
   description:
-    "Stock Sol at your kava bar, smoke shop, or retail. Case pricing, fast lead times, and Tampa-priority routing.",
+    "Stock Sol at your kava bar, smoke shop, or retail. Case pricing, fast lead times.",
 };
 
 export default function WholesalePage() {
@@ -19,35 +19,34 @@ export default function WholesalePage() {
             Stock Sol at your bar.
           </h1>
           <p className="mt-5 text-lg text-ink-muted">
-            Sol is launching wholesale-first into kava bars and smoke shops. We&rsquo;re looking
-            for accounts that share our crowd — adults who&rsquo;d rather wind down with a kava
-            pouch than another round.
+            Sol is built for kava bars and shops. Real noble kava, made in the
+            USA, in a take-home format your customers will actually use.
           </p>
 
           <ul className="mt-8 grid gap-4 text-base text-ink">
             <li className="flex gap-3">
               <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
-              <span><strong>Extra revenue line.</strong> Take-home product your existing customers will buy on the way out.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
-              <span><strong>Customer retention.</strong> A pouch in a glovebox is a return trip to your bar.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
-              <span><strong>Tampa priority.</strong> Tampa / St. Pete accounts close fastest — that&rsquo;s our home market.</span>
+              <span><strong>Take-home product.</strong> Something your customers can grab on the way out.</span>
             </li>
             <li className="flex gap-3">
               <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
               <span><strong>Real noble kava, made in the USA.</strong> Same compounds your customers already drink.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
+              <span><strong>Case pricing + fast lead times.</strong> Reorder when you&rsquo;re running low, not weeks ahead.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full bg-sunset" />
+              <span><strong>A real human on the other end.</strong> No portal, no ticket queue.</span>
             </li>
           </ul>
 
           <div className="mt-10 rounded-2xl border border-ink/10 bg-white p-6">
             <p className="font-display text-xl text-ink">Case pricing</p>
             <p className="mt-2 text-sm text-ink-muted">
-              Cases ship in increments of 12 cans (240 pouches). Tiered pricing kicks in at
-              5+ cases per month. Reach out for the current sheet — pricing is updated quarterly.
+              Sol ships by the case. Reach out and we&rsquo;ll send the current
+              wholesale sheet.
             </p>
           </div>
         </div>

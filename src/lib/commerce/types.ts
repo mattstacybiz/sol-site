@@ -30,7 +30,7 @@ export type ProductVariant = {
   options?: { name: string; value: string }[];
 };
 
-export type ProductCategory = "single" | "multipack" | "sample" | "merch";
+export type ProductCategory = "sleeve" | "merch";
 
 export type Product = {
   id: string;

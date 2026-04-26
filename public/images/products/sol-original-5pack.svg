@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="A multipack of five Sol Original tins, fanned out">
+  <defs>
+    <radialGradient id="bg5" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#FFF1DC"/>
+      <stop offset="100%" stop-color="#F0BD7E"/>
+    </radialGradient>
+    <radialGradient id="lid5" cx="40%" cy="32%" r="78%">
+      <stop offset="0%" stop-color="#FFB37A"/>
+      <stop offset="35%" stop-color="#FF7A3D"/>
+      <stop offset="75%" stop-color="#E8472D"/>
+      <stop offset="100%" stop-color="#B8265B"/>
+    </radialGradient>
+    <radialGradient id="sheen5" cx="40%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9E1F49"/>
+      <stop offset="100%" stop-color="#6A0F30"/>
+    </linearGradient>
+
+    <symbol id="solPuck" viewBox="-260 -260 520 520">
+      <!-- side rim -->
+      <ellipse cx="0" cy="42" rx="240" ry="36" fill="url(#rim5)"/>
+      <!-- lid -->
+      <circle r="240" fill="url(#lid5)"/>
+      <!-- sheen -->
+      <ellipse cx="-50" cy="-72" rx="170" ry="100" fill="url(#sheen5)"/>
+      <!-- inner rings -->
+      <circle r="232" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.30"/>
+      <circle r="208" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.20"/>
+      <!-- pull tab -->
+      <ellipse cx="220" cy="0" rx="22" ry="14" fill="#7A1739"/>
+      <!-- label -->
+      <g text-anchor="middle" fill="#FFF8F0" font-family="'Fraunces', serif">
+        <text y="-90" font-family="'Inter', system-ui, sans-serif" font-size="11" letter-spacing="3" fill="#FFE9D6" font-weight="600">NOBLE KAVA</text>
+        <text y="20" font-size="180" font-weight="700" letter-spacing="-8">SOL</text>
+        <text y="70" font-style="italic" font-size="28" fill="#FFE9D6">mint</text>
+        <line x1="-86" y1="100" x2="86" y2="100" stroke="#FFE9D6" stroke-width="1" opacity="0.55"/>
+        <text y="135" font-family="'Inter', system-ui, sans-serif" font-size="13" letter-spacing="3" fill="#FFE9D6" font-weight="600">20 POUCHES</text>
+      </g>
+    </symbol>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#bg5)"/>
+  <ellipse cx="600" cy="780" rx="560" ry="100" fill="#FFB37A" opacity="0.5"/>
+
+  <!-- shadows for the fanned tins -->
+  <ellipse cx="280"  cy="940" rx="170" ry="20" fill="#1E1B4B" opacity="0.20"/>
+  <ellipse cx="450"  cy="930" rx="170" ry="20" fill="#1E1B4B" opacity="0.20"/>
+  <ellipse cx="600"  cy="925" rx="170" ry="20" fill="#1E1B4B" opacity="0.22"/>
+  <ellipse cx="750"  cy="930" rx="170" ry="20" fill="#1E1B4B" opacity="0.20"/>
+  <ellipse cx="920"  cy="940" rx="170" ry="20" fill="#1E1B4B" opacity="0.20"/>
+
+  <!-- 5 round tins, fanned. Each transformed individually so they overlap nicely. -->
+  <use href="#solPuck" x="120"  y="500" width="320" height="320" transform="rotate(-10 280 660)"/>
+  <use href="#solPuck" x="290"  y="490" width="320" height="320" transform="rotate(-5 450 650)"/>
+  <use href="#solPuck" x="440"  y="485" width="320" height="320"/>
+  <use href="#solPuck" x="590"  y="490" width="320" height="320" transform="rotate(5 750 650)"/>
+  <use href="#solPuck" x="760"  y="500" width="320" height="320" transform="rotate(10 920 660)"/>
+
+  <!-- ribbon -->
+  <g transform="translate(600 320)">
+    <rect x="-200" y="-34" width="400" height="68" rx="34" fill="#1E1B4B"/>
+    <text x="0" y="9" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="20" letter-spacing="6" fill="#FFE9D6" font-weight="700">MINT · 5-TIN SLEEVE</text>
+  </g>
+</svg>

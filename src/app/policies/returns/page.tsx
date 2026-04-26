@@ -17,8 +17,9 @@ export default function ReturnsPolicyPage() {
 
       <h2>Unopened product</h2>
       <p>
-        Because Sol is an ingestible product, we can only accept returns of
-        <strong> unopened, unused</strong> cans within 30 days of delivery. Email{" "}
+        Because Sol is an ingestible product, we can only accept returns of{" "}
+        <strong>unopened, unused</strong> sleeves (with all five tins still
+        sealed) within 30 days of delivery. Email{" "}
         <a href="mailto:hello@solkava.com">hello@solkava.com</a> with your order
         number and we&rsquo;ll send a return label. Once we receive the product,
         we&rsquo;ll refund the original payment method within 5&ndash;7 business days.
@@ -36,12 +37,6 @@ export default function ReturnsPolicyPage() {
       <p>
         If your order arrives with the wrong product, we&rsquo;ll ship the correct
         item immediately and cover return shipping for the original.
-      </p>
-
-      <h2>Sample packs</h2>
-      <p>
-        Sample packs are non-returnable once opened. If your sample pack was
-        damaged in transit, the damaged-shipment policy above applies.
       </p>
 
       <h2>Wholesale orders</h2>

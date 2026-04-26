@@ -28,5 +28,5 @@ To bring in a brand-new vendor:
 | `contact_submit`   | /contact form success                        |
 | `wholesale_submit` | /wholesale form success                      |
 | `newsletter_submit`| Footer newsletter signup                     |
-| `age_gate_pass`    | User confirms 21+                            |
-| `age_gate_fail`    | User declines 21+                            |
+| `age_gate_pass`    | User confirms 18+                            |
+| `age_gate_fail`    | User declines 18+                            |

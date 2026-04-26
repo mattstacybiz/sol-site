@@ -36,7 +36,7 @@ export function AgeGate() {
     >
       <div className="hero-gradient relative w-[calc(100vw-2rem)] max-w-md overflow-hidden rounded-2xl p-8 text-white shadow-2xl">
         <span className="grain-overlay" style={{ ["--tw-bg-grain" as string]: "var(--tw-bg-grain)" }} />
-        <h2 id="age-gate-title" className="font-display text-3xl">{brand.name} is for adults 21+.</h2>
+        <h2 id="age-gate-title" className="font-display text-3xl">{brand.name} is for adults 18+.</h2>
         <p className="mt-3 text-white/90">Are you 21 or older?</p>
 
         {tooYoung ? (
@@ -55,7 +55,7 @@ export function AgeGate() {
                 setOpen(false);
               }}
             >
-              I&rsquo;m 21+
+              I&rsquo;m 18+
             </Button>
             <Button
               variant="ghost"
