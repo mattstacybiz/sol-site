@@ -1,26 +1,112 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* -------------------------------------------------------------------------- */
+/*  Brand color tokens — keep in lockstep with config/brand.ts                */
+/* -------------------------------------------------------------------------- */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --sunset: 16 100% 60%;
+    --sunset-50: 24 100% 96%;
+    --sunset-100: 22 100% 88%;
+    --sunset-500: 16 100% 60%;
+    --sunset-600: 12 90% 53%;
+    --sunset-700: 8 80% 48%;
+
+    --ocean: 189 94% 43%;
+    --ocean-500: 189 94% 43%;
+    --ocean-600: 192 90% 36%;
+
+    --magenta: 330 81% 60%;
+    --magenta-500: 330 81% 60%;
+    --magenta-600: 332 70% 50%;
+
+    --cream: 36 100% 97%;
+    --ink: 243 47% 20%;
+    --ink-muted: 243 25% 40%;
+    --border: 30 30% 88%;
+
+    --background: 36 100% 97%;
+    --foreground: 243 47% 20%;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: hsl(var(--cream));
+    color: hsl(var(--ink));
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: hsl(var(--sunset) / 0.25);
+    color: hsl(var(--ink));
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Respect users who ask for reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-tight {
+    @apply container max-w-5xl;
+  }
+
+  .prose-sol {
+    @apply max-w-none text-base leading-relaxed text-ink;
+  }
+  .prose-sol h2 {
+    @apply mt-12 font-display text-3xl text-ink;
+  }
+  .prose-sol h3 {
+    @apply mt-8 font-display text-2xl text-ink;
+  }
+  .prose-sol p {
+    @apply mt-4 text-ink-muted;
+  }
+  .prose-sol ul {
+    @apply mt-4 list-disc pl-6 text-ink-muted;
+  }
+  .prose-sol li {
+    @apply mt-2;
+  }
+  .prose-sol a {
+    @apply text-sunset underline-offset-4 hover:underline;
+  }
+
+  /* Used for the hero gradient block — sits behind hero copy. */
+  .hero-gradient {
+    background-image: linear-gradient(120deg, hsl(var(--sunset)) 0%, hsl(var(--magenta)) 55%, hsl(var(--ocean)) 100%);
+  }
+
+  /* Subtle film-grain overlay you can drop into a hero with `<div class="grain-overlay" />`. */
+  .grain-overlay {
+    @apply pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay;
+    background-image: var(--tw-bg-grain, none);
+  }
+}
+
+@keyframes accordion-down {
+  from { height: 0 }
+  to { height: var(--radix-accordion-content-height) }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height) }
+  to { height: 0 }
 }
